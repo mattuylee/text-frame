@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test</title>
+  <style>
+    .example-container {
+      display: flex;
+      min-width: 360px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1024px;
+      margin: auto;
+    }
+
+    .example-item {
+      box-sizing: border-box;
+      min-width: 300px;
+      width: 300px;
+      margin: 16px;
+    }
+    .example-item:first-child {
+      flex-grow: 1;
+    }
+    #source {
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 16px;
+      height: 360px;
+      padding: 1em;
+    }
+
+    #canvas {
+      width: 100%;
+      height: 360px;
+      border: 1px solid darkgray;
+    }
+  </style>
+  <script src="../dist/umd/text-frame.js"></script>
+</head>
+
+<body>
+  <div class="example-container">
+    <div class="example-item">
+      <textarea id="source" oninput="refresh()" spellcheck="false">
+        options = {
+          viewWidth: 300,
+          viewHeight: 360,
+          fontSize: 16,
+          margin: 16,
+          fragments: [
+          {
+            margin: { left: 16, right: 16, top: 32 },
+            marginCollapse: false,
+            text: "在这里输入文本。"
+          },
+          ]
+        }
+      </textarea>
+      <button>Options Refrence</button>
+    </div>
+    <div class="example-item">
+      <canvas id="canvas"></canvas>
+      <button onclick="setPagination(-1)">Previous</button>
+      <button onclick="setPagination(1)">Next</button>
+      <span id="pagination" style="float: right;">0 / 0</span>
+    </div>
+  </div>
+
+  <script>
+    var options
+      , pagination = document.getElementById('pagination')
+      , canvas = document.getElementById('canvas')
+      , ctx = canvas.getContext('2d')
+      , pageIndex = 0
+      , frames = []
+      , defaultOptions = {
+        viewWidth: 300,
+        viewHeight: 360,
+        fontWeight: '700',
+        fontSize: 20,
+        color: 'red',
+        fragments: [
+          {
+            textAlign: 'center',
+            margin: 16,
+            marginCollapse: false,
+            text: "bad input"
+          },
+        ]
+      }
+    canvas.width = 300 * devicePixelRatio;
+    canvas.height = 360 * devicePixelRatio;
+    window.onresize = refresh;
+    refresh();
+
+    function refresh() {
+      try {
+        var src = document.getElementById('source').value;
+        new Function(src)();
+        frames = TextFrame.computeTextFrames(options);
+      }
+      catch (e) {
+        console.error(e);
+        frames = TextFrame.computeTextFrames(defaultOptions);
+      }
+      pageIndex = 0;
+      setPagination(0)
+    }
+    function setPagination(delta) {
+      ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+      if (!frames.length) {
+        pagination.textContent = '0 / 0';
+        return;
+      }
+      pageIndex += delta;
+      if (pageIndex < 0) { pageIndex = 0; }
+      else if (pageIndex >= frames.length) {
+        pageIndex = frames.length - 1;
+      }
+      TextFrame.renderFrame(ctx, frames[pageIndex]);
+      pagination.textContent = pageIndex + 1 + ' / ' + frames.length;
+    }
+  </script>
+</body>
+
+</html>
