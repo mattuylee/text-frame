@@ -24,7 +24,7 @@ export function renderFrame(context: CanvasRenderingContext2D, frame: TextFrame,
 
 ### canvasHeight
 * Type: `number`
-* Default: 根据`viewHeight`计算。
+* Default: compute with `viewHeight`
 * Description: canvas.height is `viewHeight * window.devicePixelRatio`
 
 ### margin

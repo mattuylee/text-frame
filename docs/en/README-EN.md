@@ -1,6 +1,6 @@
 # TextFrame
 
-[中文版](https://github.com/mattuylee/text-frame) | [English](https://github.com/mattuylee/text-frame/docs/en/README-EN.md)
+[中文版](https://github.com/mattuylee/text-frame) | [English](https://github.com/mattuylee/text-frame/blob/master/docs/en/README-EN.md)
 
 A javascript tool to split long text into frames, with typesetting prohibition processed and unicode full support.
 
@@ -34,7 +34,7 @@ refering to [W3C draft](https://www.w3.org/TR/2020/WD-clreq-20201001/#prohibitio
 | Em dash and long dash | ──     |
 | Ellipsis | ……     |
 
-This library take the above as default rules, but it can be configued with [options](https://mattuylee.github.io/text-frame/en/options.md).
+This library take the above as default rules, but it can be configued with [options](https://github.com/mattuylee/text-frame/blob/master/docs/en/options.md).
 
 Here is an online [demo](https://mattuylee.github.io/text-frame/en/example.html).
 
@@ -100,7 +100,7 @@ renderFrame(canvas.getContext('2d'), frames[0], true);
     // ...render
 </script>
 ```
-Option reference sits [here](https://mattuylee.github.io/text-frame/en/options.md).
+Option reference sits [here](https://github.com/mattuylee/text-frame/blob/master/docs/en/options.md).
 
 
 ## Build from Source
