@@ -1,6 +1,6 @@
 {
   "name": "@mattuy/text-frame",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": false,
   "description": "a javascript tool to split long text into pages, with typesetting prohibition processed and unicode full support.\n一个将长文本分成若干页的js工具，处理排版禁则，支持Unicode",
   "main": "index.js",
@@ -10,6 +10,7 @@
   "scripts": {
     "build": "rollup -c rollup.config.js --environment NODE_ENV:development",
     "dist": "rollup -c rollup.config.js --environment NODE_ENV:production",
+    "prepublishOnly": "npm run build && npm run dist",
     "debug": "rollup -c rollup.config.js --environment NODE_ENV:development --watch",
     "example": "rollup -c rollup.config.js --environment NODE_ENV:development --environment SERVE"
   },
