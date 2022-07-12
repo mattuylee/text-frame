@@ -44,7 +44,7 @@ export function renderFrame(context: CanvasRenderingContext2D, frame: TextFrame,
 
 ### unbreakableRule
 * Type: `RegExp`
-* Default: `/──|……|[\w\d]+/`
+* Default: `/^──|……|[\w\d]+/$`
 * Description: unbreakable marks. If not empty, must be a RegExp instance. Marks match the rule will not be split into diffrent lines
 
 ### fragments
