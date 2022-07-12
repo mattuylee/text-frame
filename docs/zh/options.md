@@ -44,7 +44,7 @@ export function renderFrame(context: CanvasRenderingContext2D, frame: TextFrame)
 
 ### unbreakableRule
 * 类型: `RegExp`
-* 默认值: `/──|……|[\w\d]+/`
+* 默认值: `/^──|……|[\w\d]+$/`
 * 说明: 符号分离禁则规则。如果提供，必须为正则表达式，正则表达式匹配则该认为该组合不能被拆分到新行，默认为破折号，省略号，和英文字母、数字组合。
 
 ### fragments
