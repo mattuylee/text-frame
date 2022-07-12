@@ -1,9 +1,10 @@
 {
   "name": "@mattuy/text-frame",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": false,
   "description": "a javascript tool to split long text into pages, with typesetting prohibition processed and unicode full support.\n一个将长文本分成若干页的js工具，处理排版禁则，支持Unicode",
   "main": "index.js",
+  "module": "esm.js",
   "directories": {
     "example": "example"
   },

@@ -74,9 +74,9 @@ const
     ...defaultOptionBase,
     viewWidth: 300,
     viewHeight: 150,
-    lineStartProhibitedMarks: `、,，.．。:：;；!！?？'"」』”’)]}）】〗〕］｝》〉–~～—·．‧•・/／`,
+    lineStartProhibitedMarks: `、,，.．。:：;；!！?？'"」』”’)]}）】〗〕］｝》〉–~～—·．‧•・/／ `,
     lineEndProhibitedMarks: `「『“‘([{（【〖〔［〔《〈/／`,
-    unbreakableRule: /^──|……|[\w\d]+$/,
+    unbreakableRule: /^(──|……|[\w\d]+)$/,
     fragments: null
   };
 
