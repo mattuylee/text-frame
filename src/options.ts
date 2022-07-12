@@ -76,7 +76,7 @@ const
     viewHeight: 150,
     lineStartProhibitedMarks: `、,，.．。:：;；!！?？'"」』”’)]}）】〗〕］｝》〉–~～—·．‧•・/／`,
     lineEndProhibitedMarks: `「『“‘([{（【〖〔［〔《〈/／`,
-    unbreakableRule: /──|……|[\w\d]+/,
+    unbreakableRule: /^──|……|[\w\d]+$/,
     fragments: null
   };
 
